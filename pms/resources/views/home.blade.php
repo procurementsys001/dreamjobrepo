@@ -11,7 +11,7 @@
             <div class="card-header">Upload Quotations</div>
                 <div class="card-body">
 
-                        {{ Form::open(['action'=>'PostsController@store', 'method'=>'POST', ]) }}
+                        {{ Form::open(['action'=>'PostsController@store', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
                             <div class="form-group">
                                 {{Form::label('quote-title','Qoutation Title')}} 
                                 {{Form::text('quote-title','',['id'=>'','class'=>'form-control','placeholder'=>'Give your qoutations a title'])}}
