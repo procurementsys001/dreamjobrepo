@@ -6,39 +6,53 @@
 @endif
 <div class="container">
     <div class="row">
-        <div class="col-sm-4" style="margin-bottom: 24px;">
-            <div class="card bg-light">
-            <div class="card-header">Upload Quotations</div>
-                <div class="card-body">
-
-                        {{ Form::open(['action'=>'PostsController@store', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
-                            <div class="form-group">
-                                {{Form::label('quote-title','Qoutation Title')}} 
-                                {{Form::text('quote-title','',['id'=>'','class'=>'form-control','placeholder'=>'Give your qoutations a title'])}}
-                            </div><hr />
-                            <div class="form-group">
-                                {{Form::text('supplier1','',['id'=>'','class'=>'form-control','placeholder'=>'Company name (Quote 1)'])}}
-                            </div>
-                            <div class="file-upload-wrapper">
-                                {{Form::file('filePath1')}}
-                            </div><hr />
-                            <div class="form-group">
-                                {{Form::text('supplier2','',['id'=>'','class'=>'form-control','placeholder'=>'Company name (Quote 1)'])}}
-                            </div>
-                            <div class="file-upload-wrapper">
-                                {{Form::file('filePath2')}}
-                            </div><hr />
-                            <div class="form-group">
-                                {{Form::text('supplier3','',['id'=>'','class'=>'form-control','placeholder'=>'Company name (Quote 1)'])}}
-                            </div>
-                            <div class="file-upload-wrapper">
-                                {{Form::file('filePath3')}}
-                            </div><hr />
-                        {{Form::submit('Submit',['id'=>'','class'=>'btn btn-secondary'])}}
-                        {{ Form::close() }}
+            <div class="col-sm-4" style="margin-bottom: 24px;">
+                    <div class="card bg-light">
+                    <div class="card-header">Procurement Analysis</div>
+                        <div class="card-body">
+                            <!--analysis card-->
+                            <div class="card card-1" style="width: 18rem;">
+                                <div class="card-body">
+                                   
+                                    <p class="card-text graphs"><i class="fas fa-chart-bar"></i></p>
+                                    <button type="button" class="btn btn-secondary btn-graph">
+                                        Authorized Quotations <span class="badge badge-light">345</span>
+                                    </button>
+                                </div>
+                            </div><br />
+                            <!--analysis card-->
+                            <div class="card card-2" style="width: 18rem;">
+                                <div class="card-body">
+                                    
+                                    <p class="card-text graphs"><i class="fas fa-chart-line"></i></p>
+                                    <button type="button" class="btn btn-secondary btn-graph">
+                                        Rejected Quotations <span class="badge badge-light">79</span>
+                                    </button>
+                                </div>
+                            </div><br /> 
+                            <!--analysis card-->
+                            <div class="card card-3" style="width: 18rem;">
+                                <div class="card-body">
+                                    
+                                    <p class="card-text graphs"><i class="fas fa-chart-pie"></i></p>
+                                    <button type="button" class="btn btn-secondary btn-graph">
+                                        Orders Made <span class="badge badge-light">201</span>
+                                    </button>
+                                </div>
+                            </div><br />
+                            <!--analysis card-->
+                            <div class="card card-4" style="width: 18rem;">
+                                <div class="card-body">
+                                    
+                                    <p class="card-text graphs"><i class="fas fa-chart-area"></i></p>
+                                    <button type="button" class="btn btn-secondary btn-graph">
+                                        Pending Orders <span class="badge badge-light">45</span>
+                                    </button>
+                                </div>
+                            </div><br />  
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
@@ -116,29 +130,23 @@
                 
         </div>
         <div class="modal-footer">
-            <form>
-                <div class="form-row align-items-center">
-                    <div class="col-auto my-1">
-                    <div class="custom-control custom-checkbox mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                        <label class="custom-control-label" for="customControlAutosizing">Submit quotation for review</label>
-                    </div>
-                    </div>
-                    <div class="col-auto my-1">
-                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>State why you chose this Quotation...</option>
-                            <option value="1">Fair Pricing</option>
-                            <option value="2">Quality Products</option>
-                            <option value="3">Products sold on credit</option>
-                        </select>
-                        </div>
-                    <div class="col-auto my-1">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> 
-                    </div>
+            <form class="modal-form">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                <select id="inputState" class="form-control">
+                    <option selected>Do you authorize or reject?</option>
+                    <option>Authorize</option>
+                    <option>Reject</option>
+                </select>
                 </div>
-            </form>   
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="procurement-reason" placeholder="State reason for authorizing...">
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </form>
         </div>
       </div>
     </div>

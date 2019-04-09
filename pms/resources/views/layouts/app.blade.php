@@ -18,13 +18,54 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .graphs{
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .card-1{
+            background: #A3E4D7;
+            color: white; 
+        }
+
+        .card-2{
+            background: #F5B7B1;
+            color: white;  
+        }
+
+        .card-3{
+            background: #D7BDE2;
+            color: white;  
+        }
+
+        .card-4{
+            background: #F9E79F;
+            color: white;  
+        }
+
+        .footer {
+        background-color: #273746;
+        color: white;
+        text-align: center;
+        }
+
+        .fa-heart{
+            color: #A93226;
+        }
+
+        .modal-form{
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'ContiTouch') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -81,7 +122,12 @@
             @yield('content')
         </main>
     </div>
-
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <p>Made with <i class="fas fa-heart"></i> by Martin Mtandi</p>
+            <span class="text-muted">&copy; copyright 2019. All rights reserved.</span>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
