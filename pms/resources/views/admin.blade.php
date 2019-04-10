@@ -64,17 +64,18 @@
                             <h6 class="card-subtitle mb-2 text-muted">{{$post->quotationTitle}}</h6>
                             <p class="card-text"> <strong>Quotation Status:</strong>
                                     <?php
-                                    $procurement=$post->procurement;
+                                 $procurement=$post->procurement;
 
-                                    if($procurement->authorised=0)
+                                    if($procurement->authorised==0)
                                     echo 'Unprocessed';
-                                    elseif($procurement->authorised=1)
+                                    elseif($procurement->authorised==1)
                                     echo 'Rejected';
                                     else
                                     echo 'Approved';
                                     ?>
                                     <br><strong>Supplier Name: </strong>{{$procurement->supplier}}
-                            </p>
+                 
+                                </p>
                             
                             <table id="tbl1" class="table table-striped">
                                 <thead>

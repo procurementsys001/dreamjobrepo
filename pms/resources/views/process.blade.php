@@ -123,11 +123,12 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 {{-- {{Form::select('authorise', array('choose'=>'Choose Action...', 'approve'=>'approve','reject'=>'reject'))}} --}}
-                                <select id="inputState" class="form-control">
+                                {{-- <select id="inputState" class="form-control">
                                         <option selected>Do you authorize or reject?</option>
                                         <option>Authorize</option>
                                         <option>Reject</option>
-                                    </select>
+                                    </select> --}}
+                                    {{Form::select('authorise', array(''=>'Do you authorize or reject?', 'approve'=>'approve','reject'=>'reject'),['id'=>'','class'=>'form-control'])}}
                             </div>
                             <div class="form-group col-md-5">
                                 {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...', 'required'])}}

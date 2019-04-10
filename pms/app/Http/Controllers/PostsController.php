@@ -17,9 +17,10 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(2);
+        $posts2=Post::where('processed', 1)->orderBy('created_at', 'desc')->paginate(2);
         // return $posts;
         if(auth()->user()->role=='admin')
-        return view('admin')->with('posts', $posts);
+        return view('admin')->with('posts', $posts2);
         else
         return view('home')->with('posts', $posts);
     }
