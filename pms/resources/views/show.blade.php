@@ -107,7 +107,7 @@
                                 </select>
                         </div>
                         <div class="form-group col-md-6">
-                            {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State your reason...'])}}
+                            {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State your reason...', 'required'])}}
                         </div>
                         <div class="form-group col-md-2">
                             {{Form::submit('Submit',['id'=>'','class'=>'btn btn-secondary'])}}

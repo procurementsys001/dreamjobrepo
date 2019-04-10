@@ -130,7 +130,7 @@
                                     </select>
                             </div>
                             <div class="form-group col-md-5">
-                                {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...'])}}
+                                {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...', 'required'])}}
                             </div>
                             {{Form::hidden('procurement_id', $procurement->id)}}
                             {{Form::hidden('_method', 'PUT')}}
