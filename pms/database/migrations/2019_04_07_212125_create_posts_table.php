@@ -29,6 +29,7 @@ class CreatePostsTable extends Migration
             $table->string('supplier3');
             $table->string('quoteState3');
             $table->string('filePath3');
+            $table->boolean('processed');
             
             $table->timestamps();
         });

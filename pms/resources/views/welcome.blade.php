@@ -61,6 +61,20 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .motto{
+                font-size: 60px;
+                color: #ECF0F1;
+                background: #2980B9;
+                margin-bottom: 4px;
+                padding: 0 14px;
+                border-radius: 5px;
+            }
+
+            .vision{
+                font-size: 30px;
+                margin-top: 0px;
+            }
         </style>
     </head>
     <body>
@@ -81,17 +95,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <h3 class="motto">ContiTouch Technologies</h3>
+                    <p class="vision">Improving Performance in Procurement</p>
                 </div>
             </div>
         </div>

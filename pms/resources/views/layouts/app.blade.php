@@ -55,8 +55,13 @@
             color: #A93226;
         }
 
-        .modal-form{
-            width: 100%;
+        .quotation-caption{
+            margin-top: 10px;
+            color: #273746;
+        }
+
+        .btn-link{
+            float: right;
         }
     </style>
 </head>
@@ -90,8 +95,7 @@
                                 </li>
                             @endif
                         @else
-                                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                                <li class="nav-item" style="margin-right: 50px;"><a href="#" class="nav-link">Reports</a></li>
+                                <li class="nav-item"><a href="/posts" class="nav-link">Home</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -122,12 +126,7 @@
             @yield('content')
         </main>
     </div>
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <p>Made with <i class="fas fa-heart"></i> by Martin Mtandi</p>
-            <span class="text-muted">&copy; copyright 2019. All rights reserved.</span>
-        </div>
-    </footer>
+   
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>

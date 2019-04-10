@@ -25,6 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+   
     protected $redirectTo = '/posts';
 
     /**
@@ -34,6 +35,9 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+      //  if(auth()->user()->id==1)
+       // $redirectTo = '/admins';
+
         $this->middleware('guest')->except('logout');
     }
 }

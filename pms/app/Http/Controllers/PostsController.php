@@ -7,7 +7,8 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    
+   
+    //
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +17,10 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(2);
+        // return $posts;
+        if(auth()->user()->role=='admin')
+        return view('admin')->with('posts', $posts);
+        else
         return view('home')->with('posts', $posts);
     }
 
@@ -109,6 +114,7 @@ class PostsController extends Controller
         $post->supplier3=$request->input('supplier3'); //SUPPLIER 1
         $post->quoteState3="Not Processed"; //QUOTATION STATE 1
         $post->filePath3= $fileNameToStore3;  //FILE PATH 1
+        $post->processed=0;
 
         $post->save();
         return redirect()->back()->with('success', 'Quotations Uploaded Successfully');
@@ -122,7 +128,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        if(auth()->user()->role=="admin")
+
+        return view ('process')->with('post', $post);
+        else
+        return view ('show')->with('post', $post);
     }
 
     /**
