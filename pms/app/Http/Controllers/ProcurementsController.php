@@ -104,7 +104,7 @@ class ProcurementsController extends Controller
         $procurement->admin_reason=$request->input('reason');
         $procurement->save();
 
-        return redirect()->back()->with('success', 'Quotations Status');
+        return redirect()->back()->with('success', 'Report back has been sent to the supervisor');
     }
 
     public function update1(Request $request)
