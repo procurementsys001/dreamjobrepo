@@ -122,7 +122,12 @@
                       {{ Form::open(['action'=>['ProcurementsController@update',$procurement->id], 'method'=>'POST']) }}
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                {{Form::select('authorise', array('choose'=>'Choose Action...', 'approve'=>'Authorize','reject'=>'Reject'))}}
+                                {{-- {{Form::select('authorise', array('choose'=>'Choose Action...', 'approve'=>'approve','reject'=>'reject'))}} --}}
+                                <select id="inputState" class="form-control">
+                                        <option selected>Do you authorize or reject?</option>
+                                        <option>Authorize</option>
+                                        <option>Reject</option>
+                                    </select>
                             </div>
                             <div class="form-group col-md-5">
                                 {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...'])}}

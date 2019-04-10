@@ -96,17 +96,28 @@
 
 
                       {{ Form::open(['action'=>'ProcurementsController@store', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
-                      <div class="form-group">
-                          {{Form::label('quote-title','Qoutation Title')}} 
-                          {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...'])}}
-                         {{Form::select('supplier', array($post->supplier1 =>$post->supplier1, $post->supplier2 => $post->supplier2, $post->supplier3 => $post->supplier3))}}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            {{-- {{Form::select('supplier', array('action'=>'Select Supplier...', $post->supplier1 =>$post->supplier1, $post->supplier2 => $post->supplier2, $post->supplier3 => $post->supplier3))}} --}}
+                            <select id="inputState" class="form-control" name="supplier">
+                                <option selected>Choose a Supplier..</option>
+                                <option  >{{$post->supplier1}}</option>
+                                <option>{{$post->supplier2}}</option>
+                                <option>{{$post->supplier3}}</option>
+                                </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State your reason...'])}}
+                        </div>
+                        <div class="form-group col-md-2">
+                            {{Form::submit('Submit',['id'=>'','class'=>'btn btn-secondary'])}}
+                        </div>
                         {{Form::hidden('post_id', $post->id)}}
-                        </div><hr />
-                      
-                  {{Form::submit('Submit',['id'=>'','class'=>'btn btn-secondary'])}}
+
+                    </div>
                   {{ Form::close() }}
                    <!--End display of quotations--->
-                    <form method="POST" action="{{url('')}}">
+                    {{-- <form method="POST" action="{{url('')}}">
                         {{ csrf_field() }}
                         <div class="form-row">
                           <div class="form-group col-md-4">
@@ -124,7 +135,7 @@
                             <button type="submit" class="btn btn-primary">Procure</button>
                           </div>
                         </div>
-                      </form>
+                      </form> --}}
                 </div>
             </div>
         </div>
