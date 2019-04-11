@@ -217,14 +217,13 @@
                             @endif
                         @else
                         <?php $user = App\User::find(Auth::user()->id); ?>
-                        <button type="button" class="btn btn-primary" data-toggle="popover" title='@foreach ($user->Notifications as $notification) 
+                        <button type="button" class="nav-item btn btn-link" data-toggle="popover" title='
+                        @foreach ($user->Notifications as $notification) 
                                 {{ $notification->markAsRead()}} 
-                                  {{$notification->data['procurement_supplier'].' has been '.$notification->data['procurement_status']}}            
-                                  @endforeach' data-content="Notifications">Popover</button>
-
-
-
-                        <li class="dropdown">
+                                {{$notification->data['procurement_supplier'].' has been '.$notification->data['procurement_status']}}         
+                          @endforeach' 
+                        data-content='NOTIFICATIONS'><i class="far fa-bell"><strong> ( {{count($user->unreadNotifications)}} )</strong></i></button>
+                        {{-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><button class="btn btn-link" id="btnPopover"  data-toggle="popover" title="Popover title" data-content="Default popover">Notification (<b>{{count($user->unreadNotifications)}}</b>)</button></a>
                                 <ul class="dropdown-menu notify-drop">
                                   <div class="notify-drop-title">
@@ -237,27 +236,16 @@
                                   <!-- notify content -->
                                   <div class="drop-content">
                                       {{-- <li> --}}
-                                            @foreach ($user->Notifications as $notification) 
+                                            {{-- @foreach ($user->Notifications as $notification) 
                                             {{ $notification->markAsRead()}} 
                                               <li><a href="">{{$notification->data['procurement_supplier'].' has been '.$notification->data['procurement_status']}}</a></li>            
-                                              @endforeach
+                                              @endforeach --}}
                                       {{-- </li> --}}
                                      
-                                  </div>
+                                  {{-- </div>
                             
                                 </ul>
-                              </li>
-
-
-
-
-
-
-
-
-
-
-
+                              </li> --}} 
                                 <li class="nav-item"><a href="/posts" class="nav-link">Home</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
