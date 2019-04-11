@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+<?php
+
+use App\Procurement;
+
+$a_quotations=Procurement::where('authorised', 2);//->orderBy('created_at', 'desc')->paginate(2);
+$r_quotations=Procurement::where('authorised', 1);
+
+?>
+
 @section('content')
 @if(session('status'))
     {{session('status')}}
@@ -17,7 +26,7 @@
                                    
                                     <p class="card-text graphs"><i class="fas fa-chart-bar"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Authorized Quotations <span class="badge badge-light">345</span>
+                                        Authorized Quotations <span class="badge badge-light">{{$a_quotations->count()}}</span>
                                     </button>
                                 </div>
                             </div><br />
@@ -27,7 +36,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-line"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Rejected Quotations <span class="badge badge-light">79</span>
+                                        Rejected Quotations <span class="badge badge-light">{{$r_quotations->count()}}</span>
                                     </button>
                                 </div>
                             </div><br /> 
@@ -37,7 +46,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-pie"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Orders Made <span class="badge badge-light">201</span>
+                                        Orders Made <span class="badge badge-light">0</span>
                                     </button>
                                 </div>
                             </div><br />
@@ -47,7 +56,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-area"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Pending Orders <span class="badge badge-light">45</span>
+                                        Pending Orders <span class="badge badge-light">0</span>
                                     </button>
                                 </div>
                             </div><br />  
@@ -71,6 +80,7 @@
                 <div class="card-body">
                     <?php
                         $procurement=$post->procurement;
+                        $count = 0;
                     ?>
                     <a href="/posts" class="btn btn-link">Back</a>
                     <h5 class="card-title">Procurement Authorization Sheet</h5>
@@ -128,7 +138,7 @@
                                         <option>Authorize</option>
                                         <option>Reject</option>
                                     </select> --}}
-                                    {{Form::select('authorise', array(''=>'Do you authorize or reject?', 'approve'=>'approve','reject'=>'reject'),['id'=>'','class'=>'form-control'])}}
+                                    {{Form::select('authorise', array(''=>'Do you authorize or reject?', 'approved'=>'approve','rejected'=>'reject'),null,['id'=>'','class'=>'form-control'])}}
                             </div>
                             <div class="form-group col-md-5">
                                 {{Form::text('reason','',['id'=>'','class'=>'form-control','placeholder'=>'State the reason...', 'required'])}}

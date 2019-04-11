@@ -15,6 +15,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4" style="margin-bottom: 24px;">
+            <!--Notifications--->
+            <!---End Notification--->
             <div class="card bg-light">
             <div class="card-header">Upload Quotations</div>
                 <div class="card-body">
@@ -50,19 +52,18 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
-                
                     <h5 class="card-title">Quotation Database</h5><br />
                     <!--Start Post of Quotation-->
                     @if(count($posts) > 0)
                         @foreach($posts as $post)
                     <h6 class="card-subtitle mb-2 text-muted">{{$post->quotationTitle}}</h6>
-                    <p class="card-text">Uploaded By {{$post->createdBy}} on {{$post->created_at}}</p>
+                    <p class="card-text">Uploaded on {{$post->created_at}} <br /><strong>Quotation Status:</strong> <?php if($post->processed==1)
+                    $status='processed'; else $status='unprocessed';?>{{$status}}</p>
                     <table id="tbl1" class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Ref Number</th>
                                 <th scope="col">Supplier Name</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -70,7 +71,6 @@
                             <tr>
                             <th scope="row">{{$post->refNo1}}</th>
                             <td>{{$post->supplier1}}</td>
-                            <td>{{$post->quoteState1}}</td>
                             <td>
                                 <a href="/posts/{{$post->id}}" class="btn  btn-primary">view</a>
                             </td>
@@ -78,7 +78,6 @@
                             <tr>
                             <th scope="row">{{$post->refNo2}}</th>
                             <td>{{$post->supplier2}}</td>
-                            <td>{{$post->quoteState2}}</td>
                             <td>
                                 <a href="/posts/{{$post->id}}" class="btn  btn-primary">view</a>
                             </td>
@@ -86,7 +85,6 @@
                             <tr>
                             <th scope="row">{{$post->refNo3}}</th>
                             <td>{{$post->supplier3}}</td>
-                            <td>{{$post->quoteState3}}</td>
                             <td>
                                 <a href="/posts/{{$post->id}}" class="btn  btn-primary">view</a>
                             </td>

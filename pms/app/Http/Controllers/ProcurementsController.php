@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Procurement;
+use App\Notifications\ProcurementNotification;
 use App\Post;
+use Notification;
+use App\Notifications\ProcurementNotify;
+use App\User;
 
 class ProcurementsController extends Controller
 {
@@ -61,6 +66,9 @@ class ProcurementsController extends Controller
 
         $post->save();
         $procurement->save();
+
+       // Notification::send();
+
         return redirect()->back()->with('success', 'Quotations Sent for Authorization');
     }
 
@@ -97,14 +105,24 @@ class ProcurementsController extends Controller
     {
         //
         $procurement = Procurement::find($request->input('procurement_id'));
-        if($request->authorise=='approve')
+        if($request->authorise=='approved')
         $procurement->authorised=2; // 2 for approved 1 for not approved
         else
         $procurement->authorised=1;
         $procurement->admin_reason=$request->input('reason');
         $procurement->save();
 
-        return redirect()->back()->with('success', 'Report back has been sent to the supervisor');
+        $details = [
+            'procurement_supplier' =>  $procurement->supplier,
+            'procurement_status' =>  $request->authorise
+        ];
+
+        $post=Post::Find($procurement->post_id);
+        $user=User::Find($post->createdBy);
+
+     Notification::send($user, new ProcurementNotification($details));
+
+        return redirect()->back()->with('success', 'Report back has been sent to the Lower Management');
     }
 
     public function update1(Request $request)

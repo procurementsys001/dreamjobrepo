@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Procurement;
 
 class PostsController extends Controller
 {
@@ -18,9 +19,12 @@ class PostsController extends Controller
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(2);
         $posts2=Post::where('processed', 1)->orderBy('created_at', 'desc')->paginate(2);
+        $p_a=Procurement::where('authorised', 2);//->orderBy('created_at', 'desc')->paginate(2);
+        $p_r=Procurement::where('authorised', 1);//)->orderBy('created_at', 'desc')->paginate(2);
+        
         // return $posts;
         if(auth()->user()->role=='admin')
-        return view('admin')->with('posts', $posts2);
+        return view('admin')->with('posts', $posts2)->with('a_quotations',$p_a)->with('r_quotations',$p_r);
         else
         return view('home')->with('posts', $posts);
     }

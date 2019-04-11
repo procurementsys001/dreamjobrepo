@@ -13,10 +13,10 @@
                             <!--analysis card-->
                             <div class="card card-1" style="width: 18rem;">
                                 <div class="card-body">
-                                   
+                                 
                                     <p class="card-text graphs"><i class="fas fa-chart-bar"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Authorized Quotations <span class="badge badge-light">345</span>
+                                        Authorized Quotations <span class="badge badge-light">{{$a_quotations->count()}}</span>
                                     </button>
                                 </div>
                             </div><br />
@@ -26,7 +26,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-line"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Rejected Quotations <span class="badge badge-light">79</span>
+                                        Rejected Quotations <span class="badge badge-light">{{$r_quotations->count()}}</span>
                                     </button>
                                 </div>
                             </div><br /> 
@@ -36,7 +36,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-pie"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Orders Made <span class="badge badge-light">201</span>
+                                        Orders Made <span class="badge badge-light">0</span>
                                     </button>
                                 </div>
                             </div><br />
@@ -46,7 +46,7 @@
                                     
                                     <p class="card-text graphs"><i class="fas fa-chart-area"></i></p>
                                     <button type="button" class="btn btn-secondary btn-graph">
-                                        Pending Orders <span class="badge badge-light">45</span>
+                                        Pending Orders <span class="badge badge-light">0</span>
                                     </button>
                                 </div>
                             </div><br />  
@@ -90,7 +90,7 @@
                                     <th scope="row">{{$post->refNo1}}</th>
                                     <td>{{$post->supplier1}}</td>
                                     <td>
-                                        <a href="/posts/{{$post->id}}" class="btn  btn-primary">view</a>
+                                    <a href="/posts/{{$post->id}}" class="btn  btn-primary">view</a>
                                     </td>
                                     </tr>
                                     <tr>
